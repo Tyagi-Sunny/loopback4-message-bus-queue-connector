@@ -3,7 +3,7 @@
 // This file is licensed under the MIT License.
 // License text available at https://opensource.org/licenses/MIT
 
-import {inject} from '@loopback/core';
+import {service} from '@loopback/core';
 import {
   Count,
   CountSchema,
@@ -25,13 +25,13 @@ import {
 } from '@loopback/rest';
 import {Todo} from '../models';
 import {TodoRepository} from '../repositories';
-import {Geocoder} from '../services';
+import {Geocoder, GeocoderProvider} from '../services';
 
 export class TodoController {
   constructor(
     @repository(TodoRepository)
     public todoRepository: TodoRepository,
-    @inject('services.Geocoder') protected geoService: Geocoder,
+    @service(GeocoderProvider) protected geoService: Geocoder,
   ) {}
 
   @post('/todos', {

@@ -14,6 +14,7 @@ import {
 import {ServiceMixin} from '@loopback/service-proxy';
 import morgan from 'morgan';
 import path from 'path';
+import {DummyComponent} from './components/dummy-component/component';
 import {MySequence} from './sequence';
 
 export {ApplicationConfig};
@@ -35,6 +36,7 @@ export class TodoListApplication extends BootMixin(
       path: '/explorer',
     });
     this.component(RestExplorerComponent);
+    this.component(DummyComponent);
 
     this.projectRoot = __dirname;
     // Customize @loopback/boot Booter Conventions here

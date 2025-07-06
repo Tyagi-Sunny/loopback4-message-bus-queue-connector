@@ -5,7 +5,7 @@
 
 import {inject, Provider} from '@loopback/core';
 import {getService} from '@loopback/service-proxy';
-import {GeocoderDataSource} from '../datasources';
+import {GeocoderDataSource} from '../../../datasources';
 
 export interface GeoPoint {
   /**
